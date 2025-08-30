@@ -2,44 +2,14 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hasil Photobooth</title>
+  <title>Hasil Foto</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>🎉 Hasil Fotomu</h1>
-  <canvas id="finalCollage"></canvas>
-  <button id="download">⬇️ Download Hasil</button>
+  <h1>Hasil Akhir</h1>
+  <canvas id="collage"></canvas>
+  <button id="download">⬇️ Download</button>
 
-  <script>
-    const canvas = document.getElementById("finalCollage");
-    const ctx = canvas.getContext("2d");
-    const photos = JSON.parse(localStorage.getItem("photosData")) || [];
-
-    // buat kolase sederhana
-    let cols = photos.length <= 2 ? photos.length : 2;
-    let rows = Math.ceil(photos.length / cols);
-    let size = 400; // ukuran tiap foto
-
-    canvas.width = cols * size;
-    canvas.height = rows * size;
-
-    photos.forEach((src, i) => {
-      let img = new Image();
-      img.src = src;
-      img.onload = () => {
-        let x = (i % cols) * size;
-        let y = Math.floor(i / cols) * size;
-        ctx.drawImage(img, x, y, size, size);
-      };
-    });
-
-    document.getElementById("download").addEventListener("click", () => {
-      let link = document.createElement("a");
-      link.download = "photobooth.png";
-      link.href = canvas.toDataURL("image/png");
-      link.click();
-    });
-  </script>
+  <script src="result.js"></script>
 </body>
 </html>

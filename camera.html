@@ -2,31 +2,20 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kamera - Web Photobooth</title>
+  <title>Kamera</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>📷 Ambil Foto</h1>
-
-  <!-- Kamera -->
-  <video id="camera" autoplay playsinline></video>
-
-  <!-- Kontrol Kamera -->
+  <h1>Ambil Foto</h1>
+  <video id="camera" autoplay></video>
+  
   <div class="controls">
-    <button id="capture">📸 Ambil Foto</button>
-    <label>
-      <input type="checkbox" id="mirror" checked> Mirror
-    </label>
-    <select id="filter">
-      <option value="none">Normal</option>
-      <option value="grayscale(100%)">Grayscale</option>
-      <option value="sepia(100%)">Sepia</option>
-    </select>
+    <button id="capture">📷 Ambil Foto</button>
+    <label><input type="checkbox" id="mirror" checked> Mirror</label>
   </div>
 
-  <!-- Preview hasil kolase -->
-  <canvas id="collage"></canvas>
+  <canvas id="preview"></canvas>
+  <button onclick="lanjutFrame()">Lanjut Pilih Frame</button>
 
   <script src="camera.js"></script>
 </body>

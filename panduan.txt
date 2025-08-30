@@ -1,0 +1,17 @@
+photobooth/
+│── index.html        // Halaman awal (pilih template kolase)
+│── camera.html       // Halaman kamera (ambil foto sesuai template)
+│── frame.html        // Pilih frame setelah foto selesai
+│── result.html       // Lihat hasil akhir + download
+│
+├── css/
+│   └── style.css     // Styling semua halaman
+│
+├── js/
+│   ├── camera.js     // Logika kamera, ambil foto, simpan ke localStorage
+│   ├── frame.js      // Logika pilih frame, tempel ke hasil foto
+│   └── result.js     // Render kolase + frame, tombol download
+│
+└── assets/
+    ├── frames/       // Kumpulan desain frame (png transparan)
+    └── icons/        // Icon tambahan (opsional)

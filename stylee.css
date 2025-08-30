@@ -1,0 +1,23 @@
+.template-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.template-options button {
+  background: #fff;
+  padding: 15px 25px;
+  border-radius: 15px;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.template-options button:hover {
+  transform: scale(1.05);
+  background: #ffe066;
+}

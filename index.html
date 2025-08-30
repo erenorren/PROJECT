@@ -2,29 +2,30 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Web Photobooth</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1> Selamat Datang di Web Photobooth</h1>
-    <p class="subtitle">Abadikan momenmu dengan gaya unik! Pilih tata letak foto dan mulailah berpose</p>
-    
-    <h2>Pilih Template Kolase:</h2>
-    <div class="template-buttons">
-      <button onclick="startPhoto(2)">2 Foto</button>
-      <button onclick="startPhoto(3)">3 Foto</button>
-      <button onclick="startPhoto(4)">4 Foto</button>
-    </div>
+  <h1>Selamat Datang di Web Photobooth</h1>
+  <p>Pilih template kolase dulu yuk!</p>
+
+  <div class="template-options">
+    <button onclick="pilihTemplate('2-grid')">2 Foto</button>
+    <button onclick="pilihTemplate('3-grid')">3 Foto</button>
+    <button onclick="pilihTemplate('4-grid')">4 Foto</button>
   </div>
 
-  <script>
-    function startPhoto(count) {
-      // Simpan pilihan template ke localStorage biar bisa diakses di halaman kamera
-      localStorage.setItem("templateCount", count);
-      window.location.href = "camera.html"; // pindah ke halaman kamera
-    }
-  </script>
+  <div class="filter-options">
+    <label>Filter:</label>
+    <select id="filter">
+      <option value="none">Normal</option>
+      <option value="grayscale(100%)">Grayscale</option>
+      <option value="sepia(100%)">Sepia</option>
+    </select>
+  </div>
+
+  <button onclick="mulaiFoto()">Mulai</button>
+
+  <script src="script.js"></script>
 </body>
 </html>
