@@ -7,11 +7,14 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1> Ambil Foto</h1>
-  <video id="camera" autoplay></video>
+  <h1>📷 Ambil Foto</h1>
 
+  <!-- Kamera -->
+  <video id="camera" autoplay playsinline></video>
+
+  <!-- Kontrol Kamera -->
   <div class="controls">
-    <button id="capture"> Ambil Foto</button>
+    <button id="capture">📸 Ambil Foto</button>
     <label>
       <input type="checkbox" id="mirror" checked> Mirror
     </label>
@@ -22,8 +25,8 @@
     </select>
   </div>
 
+  <!-- Preview hasil kolase -->
   <canvas id="collage"></canvas>
-  <button id="download"> Download Hasil</button>
 
   <script src="camera.js"></script>
 </body>

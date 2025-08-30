@@ -7,10 +7,39 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>🎉 Hasil Akhir Photobooth 🎉</h1>
-  <canvas id="result"></canvas>
-  <button id="download">⬇️ Download</button>
+  <h1>🎉 Hasil Fotomu</h1>
+  <canvas id="finalCollage"></canvas>
+  <button id="download">⬇️ Download Hasil</button>
 
-  <script src="result.js"></script>
+  <script>
+    const canvas = document.getElementById("finalCollage");
+    const ctx = canvas.getContext("2d");
+    const photos = JSON.parse(localStorage.getItem("photosData")) || [];
+
+    // buat kolase sederhana
+    let cols = photos.length <= 2 ? photos.length : 2;
+    let rows = Math.ceil(photos.length / cols);
+    let size = 400; // ukuran tiap foto
+
+    canvas.width = cols * size;
+    canvas.height = rows * size;
+
+    photos.forEach((src, i) => {
+      let img = new Image();
+      img.src = src;
+      img.onload = () => {
+        let x = (i % cols) * size;
+        let y = Math.floor(i / cols) * size;
+        ctx.drawImage(img, x, y, size, size);
+      };
+    });
+
+    document.getElementById("download").addEventListener("click", () => {
+      let link = document.createElement("a");
+      link.download = "photobooth.png";
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+    });
+  </script>
 </body>
 </html>

@@ -12,32 +12,32 @@ body {
 }
 
 h1 {
-  font-size: 42px;
+  font-size: 90px;
   margin-bottom: 10px;
 }
 
 .subtitle {
-  font-size: 20px;
+  font-size: 50px;
   margin-bottom: 40px;
   color: #f1f1f1;
 }
 
 h2 {
-  font-size: 28px;
+  font-size: 39px;
   margin-bottom: 20px;
 }
 
 .template-buttons {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 30px;
 }
 
 button {
-  font-size: 22px;
-  padding: 15px 30px;
+  font-size: 40px;
+  padding: 70px 90px;
   border: none;
-  border-radius: 12px;
+  border-radius: 18px;
   background: white;
   color: #333;
   cursor: pointer;
