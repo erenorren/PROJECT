@@ -51,6 +51,23 @@ video {
   font-size: 20px;
 }
 
+.mirror-toggle button {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 10px;
+}
+
+.mirror-toggle button:hover {
+  background: #45a049;
+}
+
+
 .controls select,
 .controls input {
   font-size: 18px;
