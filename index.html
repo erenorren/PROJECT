@@ -1,31 +1,43 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Web Photobooth</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Photobooth – Pilih Tata Letak</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <h1>Selamat Datang di Web Photobooth</h1>
-  <p>Pilih template kolase dulu yuk!</p>
+  <div class="container">
+    <h1>Selamat Datang di Web Photobooth</h1>
+    <p>Silakan pilih jumlah & tata letak fotomu. Setelah itu, kita masuk sesi foto ya ✨</p>
 
-  <div class="template-options">
-    <button onclick="pilihTemplate('2-grid')">2 Foto</button>
-    <button onclick="pilihTemplate('3-grid')">3 Foto</button>
-    <button onclick="pilihTemplate('4-grid')">4 Foto</button>
+    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+      <div class="template-card">
+        <img src="assets/templates/2-h.png" alt="2 Foto - Sampingan">
+        <div class="title">2 Foto – Sampingan</div>
+        <button onclick="pilihTemplate('2-h')">Pilih Ini</button>
+      </div>
+
+      <div class="template-card">
+        <img src="assets/templates/2-v.png" alt="2 Foto - Atas/Bawah">
+        <div class="title">2 Foto – Atas/Bawah</div>
+        <button onclick="pilihTemplate('2-v')">Pilih Ini</button>
+      </div>
+
+      <div class="template-card">
+        <img src="assets/templates/3-grid.png" alt="3 Foto – Mendatar">
+        <div class="title">3 Foto – Mendatar</div>
+        <button onclick="pilihTemplate('3-grid')">Pilih Ini</button>
+      </div>
+
+      <div class="template-card">
+        <img src="assets/templates/4-grid.jpg" alt="4 Foto – 2x2">
+        <div class="title">4 Foto – 2x2</div>
+        <button onclick="pilihTemplate('4-grid')">Pilih Ini</button>
+      </div>
+    </div>
   </div>
 
-  <div class="filter-options">
-    <label>Filter:</label>
-    <select id="filter">
-      <option value="none">Normal</option>
-      <option value="grayscale(100%)">Grayscale</option>
-      <option value="sepia(100%)">Sepia</option>
-    </select>
-  </div>
-
-  <button onclick="mulaiFoto()">Mulai</button>
-
-  <script src="script.js"></script>
+  <script src="index.js"></script>
 </body>
 </html>

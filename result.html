@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Hasil Foto</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Photobooth – Hasil Akhir</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <h1>Hasil Akhir</h1>
-  <canvas id="collage"></canvas>
-  <button id="download">⬇️ Download</button>
+  <div class="container">
+    <h1>Hasil Akhir</h1>
+    <canvas id="finalCanvas"></canvas>
+    <div style="margin-top:20px;">
+      <a id="downloadBtn" class="button" download="photobooth.png">⬇️ Download</a>
+    </div>
+  </div>
 
   <script src="result.js"></script>
 </body>

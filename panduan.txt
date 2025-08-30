@@ -1,17 +1,25 @@
 photobooth/
-│── index.html        // Halaman awal (pilih template kolase)
-│── camera.html       // Halaman kamera (ambil foto sesuai template)
-│── frame.html        // Pilih frame setelah foto selesai
-│── result.html       // Lihat hasil akhir + download
+│── index.html          # Halaman welcome + pilih tata letak
+│── camera.html         # Halaman kamera + isi slot sesuai template + retake
+│── frame.html          # Halaman pilih desain frame
+│── result.html         # Halaman preview final + download
 │
 ├── css/
-│   └── style.css     // Styling semua halaman
+│   └── style.css       # Styling global semua halaman (font besar)
 │
 ├── js/
-│   ├── camera.js     // Logika kamera, ambil foto, simpan ke localStorage
-│   ├── frame.js      // Logika pilih frame, tempel ke hasil foto
-│   └── result.js     // Render kolase + frame, tombol download
+│   ├── index.js        # Logic pilih template → simpan ke localStorage
+│   ├── camera.js       # Kamera, mirror, isi slot, retake, lanjut
+│   ├── frame.js        # Pilih frame → simpan → lanjut
+│   └── result.js       # Render kolase + overlay frame + download
 │
 └── assets/
-    ├── frames/       // Kumpulan desain frame (png transparan)
-    └── icons/        // Icon tambahan (opsional)
+    ├── templates/      # (opsional) gambar preview layout kecil
+    │   ├── 2-h.png
+    │   ├── 2-v.png
+    │   ├── 3-grid.png
+    │   └── 4-grid.png
+    └── frames/         # PNG transparan untuk overlay frame
+        ├── frame1.png
+        ├── frame2.png
+        └── frame3.png

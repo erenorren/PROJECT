@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Kamera</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Photobooth – Sesi Foto</title>
+  <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
-  <h1>Ambil Foto</h1>
-  <video id="camera" autoplay></video>
-  
-  <div class="controls">
-    <button id="capture">📷 Ambil Foto</button>
-    <div class="mirror-toggle">
-  <button id="mirrorBtn">Mirror: ON</button>
-</div>
+  <div class="container">
+    <h1>Sesi Foto</h1>
 
+    <div class="video-wrap">
+      <video id="camera" autoplay playsinline></video>
+    </div>
+
+    <div class="controls">
+      <button id="captureBtn">📷 Ambil Foto</button>
+      <button id="mirrorBtn" class="toggle">Mirror: ON</button>
+      <button id="retakeBtn" class="button" style="display:none;">↩️ Foto Ulang Slot Terpilih</button>
+      <button id="nextBtn" class="button" style="display:none;">➡️ Lanjut Pilih Desain Frame</button>
+    </div>
+
+    <p style="margin-top:10px;">Klik slot di bawah untuk memilih **slot** yang mau di-<i>retake</i>.</p>
+
+    <!-- Grid slot sesuai tata letak yang dipilih -->
+    <div id="slots"></div>
   </div>
 
-  <canvas id="preview"></canvas>
-  <button onclick="lanjutFrame()">Lanjut Pilih Frame</button>
-
-  <script src="camera.js"></script>
+  <script src="js/camera.js"></script>
 </body>
 </html>
