@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pilih Frame - Photobooth</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Pilih Frame Favoritmu</h1>
+  <div class="frames">
+    <img src="img/frame1.png" onclick="applyFrame('img/frame1.png')">
+    <img src="img/frame2.png" onclick="applyFrame('img/frame2.png')">
+    <img src="img/frame3.png" onclick="applyFrame('img/frame3.png')">
+  </div>
+
+  <canvas id="final"></canvas>
+  <button onclick="window.location.href='result.html'">➡️ Lihat Hasil</button>
+
+  <script src="frame.js"></script>
+</body>
+</html>

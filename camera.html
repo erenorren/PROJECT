@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kamera - Web Photobooth</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>📷 Ambil Foto</h1>
+  <video id="camera" autoplay></video>
+
+  <div class="controls">
+    <button id="capture">📸 Ambil Foto</button>
+    <label>
+      <input type="checkbox" id="mirror" checked> Mirror
+    </label>
+    <select id="filter">
+      <option value="none">Normal</option>
+      <option value="grayscale(100%)">Grayscale</option>
+      <option value="sepia(100%)">Sepia</option>
+    </select>
+  </div>
+
+  <canvas id="collage"></canvas>
+  <button id="download">⬇️ Download Hasil</button>
+
+  <script src="camera.js"></script>
+</body>
+</html>
