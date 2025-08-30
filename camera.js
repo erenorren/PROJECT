@@ -116,7 +116,7 @@ captureBtn.addEventListener('click', () => {
 // Tombol retake (kalau user udah pilih slot)
 retakeBtn.addEventListener('click', () => {
   if (selectedSlot === null) {
-    alert('Klik slot yang mau diulang dulu ya 🙂');
+    alert('Klik slot yang mau diulang dulu ya');
   } else {
     // langsung capture lagi akan mengganti slot terpilih
     alert('Arahkan kamera & klik "Ambil Foto" untuk mengganti slot terpilih.');
