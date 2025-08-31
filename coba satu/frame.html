@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pilih Desain Frame</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+    <h1>Pilih Desain Frame</h1>
+    <p>Di bawah ini kolase fotomu. Pilih desain frame favorit ya!</p>
+
+    <canvas id="previewCanvas"></canvas>
+
+    <div class="grid frame-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-top: 24px;">
+      <img src="assets/frames/frame1.png" alt="Frame 1" onclick="pilihFrame('assets/frames/frame1.png')">
+      <img src="assets/frames/frame2.png" alt="Frame 2" onclick="pilihFrame('assets/frames/frame2.png')">
+      <img src="assets/frames/frame3.png" alt="Frame 3" onclick="pilihFrame('assets/frames/frame3.png')">
+    </div>
+
+    <div style="margin-top:20px;">
+      <a class="button" href="result.html">Lanjut ke Preview Final</a>
+    </div>
+  </div>
+
+  <script src="frame.js"></script>
+</body>
+</html>
