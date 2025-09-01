@@ -1,38 +1,36 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Photobooth – Sesi Foto</title>
-  <link rel="stylesheet" href="style.css"/>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Photobooth – Sesi Foto</title>
+    <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <div class="container">
-    <h1>Sesi Foto & Video</h1>
-    
-    <div class="video-wrap">
-      <video id="camera" autoplay playsinline></video>
-    </div>
-    
-    <div class="controls">
-      <button id="captureBtn">📷 Ambil Foto</button>
-      <button id="recordBtn" class="toggle">⏺️ Mulai Rekam</button>
-      <button id="stopBtn" style="display:none;">⏹️ Berhenti</button>
-      <button id="downloadBtn" style="display:none;">⬇️ Unduh Video</button>
-    </div>
+    <div class="container">
+        <h1>Sesi Foto & Video</h1>
+        
+        <div class="video-wrap">
+            <video id="camera" autoplay playsinline></video>
+        </div>
+        
+        <div class="controls">
+            <button id="captureBtn">📷 Ambil Foto</button>
+            <button id="recordBtn" class="toggle">⏺️ Mulai Rekam</button>
+            <button id="stopBtn" style="display:none;">⏹️ Berhenti</button>
+            <button id="downloadBtn" style="display:none;">⬇️ Unduh Video</button>
+        </div>
 
-        <div class="filter-controls" style="margin-top: 20px;">
-      <button data-filter="none">Normal</button>
-      <button data-filter="grayscale">B&W</button>
-      <button data-filter="sepia">Sepia</button>
-      <button data-filter="invert">Invert</button>
-    </div>
+        <div class="filter-controls" style="margin-top: 20px;">
+            <button data-filter="none">Normal</button>
+            <button data-filter="grayscale">B&W</button>
+            <button data-filter="sepia">Sepia</button>
+            <button data-filter="invert">Invert</button>
+        </div>
 
-        <p style="margin-top:10px;">Klik slot di bawah untuk memilih **slot** yang mau di-<i>retake</i>.</p>
+        <p style="margin-top:10px;">Klik slot di bawah untuk memilih **slot** yang mau di-<i>retake</i>.</p>
 
-        <div id="slots"></div>
-  </div>
-
-  <script src="camera.js"></script>
+        <div id="slots"></div>
+    </div> <script src="camera.js"></script>
 </body>
 </html>
