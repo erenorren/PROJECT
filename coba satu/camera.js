@@ -9,9 +9,6 @@ const nextBtn = document.getElementById('nextBtn');
 const retakeBtn = document.getElementById('retakeBtn');
 const slotsWrap = document.getElementById('slots');
 const filterButtons = document.querySelectorAll('.filter-controls button');
-const recordBtn = document.getElementById('recordBtn');
-const stopBtn = document.getElementById('stopBtn');
-const downloadBtn = document.getElementById('downloadBtn');
 
 // Variabel untuk state (status) aplikasi
 const layoutKey = localStorage.getItem('layoutKey') || '2-h';
@@ -21,13 +18,7 @@ let photos = JSON.parse(localStorage.getItem('photos') || '[]'); // dataURL per 
 let selectedSlot = null; // index slot untuk retake
 let currentFilter = 'none';
 
-// Variabel untuk fitur video
-let mediaRecorder;
-let recordedChunks = [];
-
 // --- 2. Fungsionalitas Layout & Slots
-// Kode fungsi applySlotsGrid dan renderSlots yang sudah ada di sini.
-// ... (Salin kode kamu di bagian ini)
 function applySlotsGrid(layout) {
     if (layout === '2-h') {
         slotsWrap.style.gridTemplateColumns = 'repeat(2, 240px)';
@@ -76,15 +67,11 @@ function updateNextVisibility() {
 }
 renderSlots();
 
-
-// --- 3. Akses Kamera & Fungsionalitas Video
+// --- 3. Akses Kamera & Fungsionalitas Utama
 // Kode ini HARUS dieksekusi setelah halaman selesai dimuat.
-// Tambahkan event listener untuk memastikan DOM sudah siap.
 window.addEventListener('load', () => {
-    // Akses kamera
     navigator.mediaDevices.getUserMedia({ video: true })
         .then(stream => {
-            // Setelah stream berhasil, atur elemen video
             video.srcObject = stream;
         })
         .catch(err => {
@@ -117,42 +104,6 @@ setMirrorUI();
 mirrorBtn.addEventListener('click', () => {
     isMirror = !isMirror;
     setMirrorUI();
-});
-
-// Perekaman Video
-recordBtn.addEventListener('click', () => {
-    captureBtn.style.display = 'none';
-    recordBtn.style.display = 'none';
-    stopBtn.style.display = 'inline-block';
-    
-    // Pastikan video stream sudah tersedia
-    if (!video.srcObject) {
-        alert('Kamera belum siap, mohon tunggu sebentar.');
-        return;
-    }
-
-    mediaRecorder = new MediaRecorder(video.srcObject);
-    mediaRecorder.ondataavailable = (event) => {
-        if (event.data.size > 0) {
-            recordedChunks.push(event.data);
-        }
-    };
-    mediaRecorder.onstop = () => {
-        const superBlob = new Blob(recordedChunks, { type: 'video/webm' });
-        const videoURL = window.URL.createObjectURL(superBlob);
-        downloadBtn.href = videoURL;
-        downloadBtn.download = 'photobooth-video.webm';
-        downloadBtn.style.display = 'inline-block';
-        recordedChunks = [];
-    };
-    mediaRecorder.start();
-});
-
-stopBtn.addEventListener('click', () => {
-    mediaRecorder.stop();
-    captureBtn.style.display = 'inline-block';
-    recordBtn.style.display = 'inline-block';
-    stopBtn.style.display = 'none';
 });
 
 // Foto
