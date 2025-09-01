@@ -81,9 +81,10 @@ renderSlots();
 // Kode ini HARUS dieksekusi setelah halaman selesai dimuat.
 // Tambahkan event listener untuk memastikan DOM sudah siap.
 window.addEventListener('load', () => {
-    // Akses kamera, ini yang membuat kamera hidup
+    // Akses kamera
     navigator.mediaDevices.getUserMedia({ video: true })
         .then(stream => {
+            // Setelah stream berhasil, atur elemen video
             video.srcObject = stream;
         })
         .catch(err => {
