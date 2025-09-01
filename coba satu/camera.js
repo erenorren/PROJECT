@@ -1,7 +1,7 @@
 // camera.js
 
 // --- 1. Deklarasi Variabel & Elemen
-// Variabel untuk elemen HTML
+// ... (kode deklarasi Anda)
 const video = document.getElementById('camera');
 const captureBtn = document.getElementById('captureBtn');
 const mirrorBtn = document.getElementById('mirrorBtn');
@@ -10,65 +10,18 @@ const retakeBtn = document.getElementById('retakeBtn');
 const slotsWrap = document.getElementById('slots');
 const filterButtons = document.querySelectorAll('.filter-controls button');
 
-// Variabel untuk state (status) aplikasi
-const layoutKey = localStorage.getItem('layoutKey') || '2-h';
-const slotCount = parseInt(localStorage.getItem('slotCount') || '2', 10);
+// ... (kode state Anda)
 let isMirror = true;
-let photos = JSON.parse(localStorage.getItem('photos') || '[]'); // dataURL per slot
-let selectedSlot = null; // index slot untuk retake
+let photos = JSON.parse(localStorage.getItem('photos') || '[]');
+let selectedSlot = null;
 let currentFilter = 'none';
 
 // --- 2. Fungsionalitas Layout & Slots
-function applySlotsGrid(layout) {
-    if (layout === '2-h') {
-        slotsWrap.style.gridTemplateColumns = 'repeat(2, 240px)';
-    } else if (layout === '2-v') {
-        slotsWrap.style.gridTemplateColumns = '240px';
-    } else if (layout === '3-grid') {
-        slotsWrap.style.gridTemplateColumns = 'repeat(3, 240px)';
-    } else if (layout === '4-grid') {
-        slotsWrap.style.gridTemplateColumns = 'repeat(2, 240px)';
-    }
-}
+// ... (kode fungsi applySlotsGrid, renderSlots, updateNextVisibility Anda)
 applySlotsGrid(layoutKey);
-
-function renderSlots() {
-    slotsWrap.innerHTML = '';
-    for (let i = 0; i < slotCount; i++) {
-        const slot = document.createElement('div');
-        slot.className = 'slot' + (photos[i] ? ' filled' : '');
-        slot.dataset.index = String(i);
-        slot.textContent = photos[i] ? '' : `Slot ${i + 1}`;
-
-        if (photos[i]) {
-            const img = new Image();
-            img.src = photos[i];
-            img.className = 'preview';
-            slot.appendChild(img);
-            if (currentFilter !== 'none') {
-                slot.classList.add(currentFilter);
-            }
-        }
-
-        slot.addEventListener('click', () => {
-            document.querySelectorAll('.slot').forEach(s => s.classList.remove('selected'));
-            slot.classList.add('selected');
-            selectedSlot = i;
-            retakeBtn.style.display = 'inline-block';
-        });
-        slotsWrap.appendChild(slot);
-    }
-    updateNextVisibility();
-}
-
-function updateNextVisibility() {
-    const filled = photos.filter(Boolean).length;
-    nextBtn.style.display = filled === slotCount ? 'inline-block' : 'none';
-}
 renderSlots();
 
 // --- 3. Akses Kamera & Fungsionalitas Utama
-// Kode ini HARUS dieksekusi setelah halaman selesai dimuat.
 window.addEventListener('load', () => {
     navigator.mediaDevices.getUserMedia({ video: true })
         .then(stream => {
@@ -83,8 +36,11 @@ window.addEventListener('load', () => {
 // --- 4. Event Listener untuk Kontrol
 // Filter
 filterButtons.forEach(button => {
+    // Tambahkan event listener di sini
     button.addEventListener('click', () => {
-        video.classList.remove('grayscale', 'sepia', 'invert');
+        // Hapus SEMUA kelas filter yang mungkin ada
+        video.classList.remove('grayscale', 'sepia', 'invert', 'low-res'); 
+
         const newFilter = button.dataset.filter;
         if (newFilter !== 'none') {
             video.classList.add(newFilter);
@@ -92,6 +48,7 @@ filterButtons.forEach(button => {
         currentFilter = newFilter;
     });
 });
+
 
 // Mirror
 function setMirrorUI() {

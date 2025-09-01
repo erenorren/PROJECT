@@ -73,51 +73,27 @@ button:hover, a.button:hover { transform: translateY(-2px); background: #ffe36e;
   font-weight: 700;
 }
 
-/* style.css */
-
-/* ...kode CSS yang sudah ada... */
-
-/* Aturan untuk filter pada video */
-#camera.grayscale {
-  filter: grayscale(100%);
-}
-
-
-#camera.sepia {
-  filter: sepia(100%);
-}
-
-#camera.invert {
-  filter: invert(100%);
-}
-
-#camera.low-res {
-  /* Mengaburkan gambar sedikit untuk mengurangi detail */
-  filter: blur(0.5px) 
-          /* Mengurangi kejenuhan warna agar terlihat lebih pudar */
-          saturate(50%) 
-          /* Mengurangi kecerahan gambar */
-          brightness(80%)
-          /* Menambahkan efek noise atau grainy */
-          contrast(120%); 
-}
-
-/* Aturan untuk filter pada foto */
-.photo-slot {
-  /* Berikan transisi agar perubahan filter lebih halus */
+/* --- Pengaturan Umum untuk Semua Filter --- */
+/* Buat transisi agar pergantian filter terlihat halus */
+#camera {
   transition: filter 0.3s ease-in-out;
 }
 
-.photo-slot.grayscale {
+/* --- Pengaturan Filter Khusus --- */
+#camera.grayscale, .photo-slot.grayscale {
   filter: grayscale(100%);
 }
 
-.photo-slot.sepia {
+#camera.sepia, .photo-slot.sepia {
   filter: sepia(100%);
 }
 
-.photo-slot.invert {
+#camera.invert, .photo-slot.invert {
   filter: invert(100%);
+}
+
+#camera.low-res, .photo-slot.low-res {
+  filter: blur(0.5px) saturate(50%) brightness(80%) contrast(120%);
 }
 
 /* Kamera */
