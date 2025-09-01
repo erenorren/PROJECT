@@ -98,6 +98,63 @@ filterButtons.forEach(button => {
     });
 });
 
+// camera.js
+
+// --- Tambahkan variabel baru di bagian atas
+const recordBtn = document.getElementById('recordBtn');
+const stopBtn = document.getElementById('stopBtn');
+const downloadBtn = document.getElementById('downloadBtn');
+
+let mediaRecorder;
+let recordedChunks = []; // Array untuk menyimpan potongan data video
+
+// --- Event Listeners untuk Video
+recordBtn.addEventListener('click', () => {
+    // Sembunyikan tombol foto, tampilkan tombol berhenti
+    captureBtn.style.display = 'none';
+    recordBtn.style.display = 'none';
+    stopBtn.style.display = 'inline-block';
+
+    // Buat MediaRecorder dari stream kamera
+    mediaRecorder = new MediaRecorder(video.srcObject);
+
+    // Kumpulkan potongan data video saat tersedia
+    mediaRecorder.ondataavailable = (event) => {
+        if (event.data.size > 0) {
+            recordedChunks.push(event.data);
+        }
+    };
+
+    // Saat perekaman berhenti, gabungkan dan buat video
+    mediaRecorder.onstop = () => {
+        const superBlob = new Blob(recordedChunks, {
+            type: 'video/webm'
+        });
+        const videoURL = window.URL.createObjectURL(superBlob);
+
+        // Tampilkan tombol unduh dan atur link-nya
+        downloadBtn.href = videoURL;
+        downloadBtn.download = 'photobooth-video.webm';
+        downloadBtn.style.display = 'inline-block';
+
+        // Bersihkan data
+        recordedChunks = [];
+    };
+
+    // Mulai perekaman
+    mediaRecorder.start();
+});
+
+stopBtn.addEventListener('click', () => {
+    // Hentikan perekaman
+    mediaRecorder.stop();
+
+    // Tampilkan tombol foto lagi
+    captureBtn.style.display = 'inline-block';
+    recordBtn.style.display = 'inline-block';
+    stopBtn.style.display = 'none';
+});
+
 // Ambil frame dari video → dataURL
 function captureFrameFromVideo() {
     const canvas = document.createElement('canvas');
