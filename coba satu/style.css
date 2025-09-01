@@ -73,6 +73,41 @@ button:hover, a.button:hover { transform: translateY(-2px); background: #ffe36e;
   font-weight: 700;
 }
 
+/* style.css */
+
+/* ...kode CSS yang sudah ada... */
+
+/* Aturan untuk filter pada video */
+#camera.grayscale {
+  filter: grayscale(100%);
+}
+
+#camera.sepia {
+  filter: sepia(100%);
+}
+
+#camera.invert {
+  filter: invert(100%);
+}
+
+/* Aturan untuk filter pada foto */
+.photo-slot {
+  /* Berikan transisi agar perubahan filter lebih halus */
+  transition: filter 0.3s ease-in-out;
+}
+
+.photo-slot.grayscale {
+  filter: grayscale(100%);
+}
+
+.photo-slot.sepia {
+  filter: sepia(100%);
+}
+
+.photo-slot.invert {
+  filter: invert(100%);
+}
+
 /* Kamera */
 .video-wrap {
   display: flex;
